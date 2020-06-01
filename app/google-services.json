@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "499019309231",
+    "firebase_url": "https://cardgame-a8bb1.firebaseio.com",
+    "project_id": "cardgame-a8bb1",
+    "storage_bucket": "cardgame-a8bb1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499019309231:android:f3a1d4a648ffd5838db45a",
+        "android_client_info": {
+          "package_name": "com.masha.yuhubrain"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499019309231-kmqenrfk95lp03m43ogcr9qhuqnseu55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpz2zTLHOZPoMjkdvN6F0MIHlDrDUdMu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499019309231-kmqenrfk95lp03m43ogcr9qhuqnseu55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

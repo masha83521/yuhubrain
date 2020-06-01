@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">YuhuBrain</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="fogpassword">Forget Password?</string>
+    <string name="newuser">New User</string>
+    <string name="confPolicy">Confidentiality Policy</string>
+
+</resources>
