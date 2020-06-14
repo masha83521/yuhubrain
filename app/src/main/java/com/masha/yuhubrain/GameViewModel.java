@@ -51,7 +51,7 @@ public class GameViewModel extends ViewModel {
         });
     }
 
-    //Устанавливаем уровень из объекта
+    //Устанавливаем уровень из объекта. ОБнуляем выбранный ответ
     public void setLevel(final GameLevel level) throws InterruptedException {
         if(this.level.getValue() != null) {
             wait(CHANGE_QUESTION_DELAY);

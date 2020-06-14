@@ -47,6 +47,7 @@ public class SingUp extends AppCompatActivity {
         regPassword = findViewById(R.id.reg_password);
         regBtn = findViewById(R.id.reg_btn);
         toLoginBtn = findViewById(R.id.to_login_btn);
+
         //Переходим к политике конфиденциальности
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +67,11 @@ public class SingUp extends AppCompatActivity {
         switch (requestCode) {
             case 1:
                 if (resultCode == RESULT_OK) {
+
+                    final AlertDialog dialog = new AlertDialog.Builder(this)
+                            .setView(R.layout.progress_dialog_layout)
+                            .setCancelable(false)
+                            .show();
                     final User user1 = (User) data.getSerializableExtra("user");
                     final String password = data.getStringExtra("password");
                     Toast.makeText(this, password, Toast.LENGTH_SHORT);
@@ -77,6 +83,7 @@ public class SingUp extends AppCompatActivity {
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             //Если существует, выводим диалоговое окно
                             if(task.isSuccessful()){
+                                dialog.cancel();
                                 DocumentSnapshot document = task.getResult();
                                 final User user = document.toObject(User.class);
                                 if(user != null){
@@ -102,11 +109,12 @@ public class SingUp extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<AuthResult> task) {
                                             //В случае успешной регистрации переходим к меню игры
                                             if(task.isSuccessful()){
-                                                Toast.makeText(SingUp.this, "Регистрация прошла успешно\n"+user.getUsername()+"\n"+user.getEmail(),Toast.LENGTH_LONG);
+                                                dialog.cancel();
                                                 Intent intent = new Intent(SingUp.this, MenuActivity.class);
                                                 startActivity(intent);
                                                 //Если адрес почты занят, пароль слишком слабый или адрес электронной почты некорректен, выводим соответствующее сообщение
                                             }else if(task.getException() instanceof FirebaseAuthUserCollisionException){
+                                                dialog.cancel();
                                                 new AlertDialog.Builder(SingUp.this)
                                                         .setPositiveButton("ОК", new DialogInterface.OnClickListener() {
                                                             @Override
@@ -120,6 +128,7 @@ public class SingUp extends AppCompatActivity {
                                                         .show();
                                                 db.collection("users").document(user1.getUsername()).delete();
                                             }else if(task.getException() instanceof FirebaseAuthWeakPasswordException){
+                                                dialog.cancel();
                                                 new AlertDialog.Builder(SingUp.this)
                                                         .setPositiveButton("ОК", new DialogInterface.OnClickListener() {
                                                             @Override
@@ -133,6 +142,7 @@ public class SingUp extends AppCompatActivity {
                                                         .show();
                                                 db.collection("users").document(user1.getUsername()).delete();
                                             }else{
+                                                dialog.cancel();
                                                 new AlertDialog.Builder(SingUp.this)
                                                         .setPositiveButton("ОК", new DialogInterface.OnClickListener() {
                                                             @Override
