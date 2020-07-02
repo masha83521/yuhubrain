@@ -84,7 +84,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                                 }
                             });
                             //Устанавливаем текст вопроса
-                            questionText.setText(gameQuestion.getName());
+                            questionText.setText(gameQuestion.getName().replace("\\n","\n"));
                         }
                     });
                     //Выполняем наблюдение за выбранным ответом

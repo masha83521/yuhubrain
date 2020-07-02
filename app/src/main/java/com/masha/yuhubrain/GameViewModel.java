@@ -82,7 +82,8 @@ public class GameViewModel extends ViewModel {
                     ref.addSnapshotListener(new EventListener<DocumentSnapshot>() {
                         @Override
                         public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-                            question.setValue(documentSnapshot.toObject(GameQuestion.class));
+                            GameQuestion q = documentSnapshot.toObject(GameQuestion.class);
+                            question.postValue(q);
                         }
                     });
                 }

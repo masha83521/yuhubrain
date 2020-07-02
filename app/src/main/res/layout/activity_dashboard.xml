@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bungee_inline"
-        android:text="PRIVET"
+        android:text="ПРИВЕТ!"
         android:transitionName="logo_text"
         android:textSize="30sp" />
 
@@ -92,7 +92,7 @@
               android:layout_marginTop="5dp"
               android:layout_marginBottom="5dp"
               android:background="#272525"
-              android:text="GO"
+              android:text="Войти"
               android:textColor="#fff"
               android:transitionName="btn_trans"
 
